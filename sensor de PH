@@ -1,0 +1,26 @@
+//Este codigo da la lectura en el monitor serie del IDE arduino
+//Este codigo puede transmitir comandos al modulo EZO por medio del monitor serie
+//Los comandos enviados se definen en el manual de ususario del fabricante del sensor
+
+#include <Wire.h>             //libreria para usar el I2C
+#define address 99            //define la direccion del modulo a leer, en este caso la direccion  es la predeterminada y se tiene que cambiar por la direccion asignada al modulo
+
+char datos_pc[20];            //arreglo de caracteres para almacenar la informacion entrante enviada por la PC
+byte recibidos_pc = 0;        //caracteres recibidos, se inicia en 0
+byte serial_ = 0;              //señal enviada por lados recibidos de la PC
+byte code = 0;                //usado para mantener el codigo de respuesta del I2C
+char lectura_PH[20];          //arreglo de 20 caracteres para mantener los datos provenientes del modulo de PH
+byte ent_char = 0:            //para almacenar los bytes de entrada provenientes del modulo de PH
+byte cont = 0;                //contador para el arreglo de lectura_PH
+int time_ = 815;              //tiempo de retraso definido dependiendo los comandos enviados al modulo PH
+float float_PH;               //variable flotante usada para mantener el valor de la lectura del modulo de PH
+
+void setup()                  //iniciacion del hardware
+{
+  Serial.begin (9600);        //activacion del puerto serial
+  Wire.begin();               //activacion del puerto I2C
+}
+
+void serial_() 
+{
+recibidos_pc
